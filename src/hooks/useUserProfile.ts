@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { getUserProfile, type UserProfile } from "../services/firebase/auth";
+import { doc, onSnapshot } from "firebase/firestore";
+import { type UserProfile } from "../services/firebase/auth";
+import { firebaseDb } from "../services/firebase";
 
 interface UseUserProfileParams {
   uid: string | null;
@@ -23,34 +25,24 @@ export function useUserProfile({ uid }: UseUserProfileParams): UseUserProfileSta
       return;
     }
 
-    let cancelled = false;
+    setLoading(true);
+    setError(null);
 
-    const fetchProfile = async () => {
-      setLoading(true);
-      setError(null);
+    const userDocRef = doc(firebaseDb, "users", uid);
 
-      try {
-        const userProfile = await getUserProfile(uid);
-
-        if (!cancelled) {
-          setProfile(userProfile);
-        }
-      } catch (err) {
-        if (!cancelled) {
-          setError("Não foi possível carregar os dados do usuário.");
-        }
-      } finally {
-        if (!cancelled) {
-          setLoading(false);
-        }
+    const unsubscribe = onSnapshot(
+      userDocRef,
+      (snapshot) => {
+        setProfile(snapshot.exists() ? (snapshot.data() as UserProfile) : null);
+        setLoading(false);
+      },
+      () => {
+        setError("Não foi possível carregar os dados do usuário.");
+        setLoading(false);
       }
-    };
+    );
 
-    void fetchProfile();
-
-    return () => {
-      cancelled = true;
-    };
+    return unsubscribe;
   }, [uid]);
 
   return { profile, loading, error };
