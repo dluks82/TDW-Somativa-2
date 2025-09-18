@@ -1,37 +1,38 @@
 # Somativa 2 - TDW
 
-> Projeto da disciplina de **Tecnologias para Desenvolvimento Web** com foco na Somativa 2.
+> Projeto da disciplina de **Tecnologias para Desenvolvimento Web** (Somativa 2) com autenticação e persistência via Firebase.
 
-Aplicação React (Vite + TypeScript) com navegação mockada entre as páginas de Login, Cadastro e Dashboard utilizando `react-router-dom`. Em uma etapa futura integraremos Firebase Authentication e Firestore para validar credenciais e persistir dados reais.
+Aplicação **React + Vite + TypeScript** com rotas protegidas pela autenticação do Firebase, cadastro de novos usuários e sincronização dos dados básicos (nome, sobrenome e data de nascimento) no Firestore.
 
-## Como rodar o projeto
+## Funcionalidades
 
-1. Instale as dependências:
+- **Cadastro**: formulário com validação que cria o usuário no Firebase Authentication e registra o perfil no Firestore.
+- **Login**: valida credenciais com Firebase Authentication e controla sessões para acesso às rotas privadas.
+- **Dashboard**: exibe os dados persistidos do usuário autenticado e permite realizar logout.
+- **Guarda de rotas**: redireciona visitantes para o login e impede que usuários autenticados acessem novamente as telas de login/cadastro.
+
+## Pré-requisitos
+
+1. Node.js 18+ instalado.
+2. Projeto Firebase configurado com Authentication (e-mail/senha) e Firestore.
+3. Variáveis de ambiente configuradas (copie `.env.example` para `.env` e ajuste os valores do seu projeto).
+4. Regras do Firestore ajustadas para permitir que cada usuário leia/escreva somente o próprio documento.
+
+## Executando o projeto
 
 ```bash
 npm install
-```
-
-2. Inicie o servidor de desenvolvimento:
-
-```bash
 npm run dev
 ```
 
-3. Acesse [http://localhost:5173](http://localhost:5173)
+A aplicação ficará disponível em [http://localhost:5173](http://localhost:5173).
 
-## Estrutura atual
+## Estrutura de pastas
 
-- `src/pages/Login`: tela mock de login com links de navegação.
-- `src/pages/Register`: tela mock de cadastro.
-- `src/pages/Dashboard`: dashboard placeholder aguardando dados do Firestore.
-- `src/App.tsx`: definição das rotas e layout base.
-
-## Próximos passos sugeridos
-
-- Conectar as páginas ao Firebase Authentication para fluxo real de login/cadastro.
-- Carregar e exibir dados do usuário a partir do Firestore no Dashboard.
-- Implementar validações de formulário e feedbacks visuais.
+- `src/services/firebase`: inicialização do SDK e helpers de autenticação.
+- `src/hooks`: hooks reutilizáveis para acompanhar o estado de autenticação e buscar perfis.
+- `src/pages`: telas de Login, Cadastro e Dashboard.
+- `src/App.tsx`: definição das rotas protegidas e fluxo de navegação.
 
 ---
 
