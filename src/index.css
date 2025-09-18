@@ -1,0 +1,60 @@
+:root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --error-color: #ef4444;
+  --error-dark: #dc2626;
+
+  --background-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-background: rgba(255, 255, 255, 0.95);
+
+  --text-primary: #1f2937;
+  --text-secondary: #475569;
+  --text-white: #ffffff;
+  --text-placeholder: #9ca3af;
+
+  --border-light: #e5e7eb;
+  --border-medium: #d1d5db;
+
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+
+  color: var(--text-primary);
+  background: var(--background-gradient);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: block;
+  background: var(--background-gradient);
+}
+
+button {
+  font-family: inherit;
+}

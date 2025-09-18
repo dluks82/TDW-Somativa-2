@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 120 120" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Logotipo personalizado</title>
+  <desc id="logoDesc">Ícone com gradiente e linha ascendente representando crescimento</desc>
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3115a6" />
+      <stop offset="55%" stop-color="#4a39d8" />
+      <stop offset="100%" stop-color="#02c9a0" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8f9ff" />
+      <stop offset="100%" stop-color="#7bfff0" />
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="108" height="108" rx="26" fill="url(#bgGradient)" />
+  <path d="M22 88c12-24 21-37 31-30c11 8 20 16 34-12" fill="none" stroke="rgba(255,255,255,0.24)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M28 84l16-30l17 20l19-38l12 18" fill="none" stroke="url(#accentGradient)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="28" cy="84" r="5" fill="#ffffff" opacity="0.9" />
+  <circle cx="44" cy="54" r="4" fill="#ffffff" opacity="0.85" />
+  <circle cx="61" cy="74" r="4" fill="#ffffff" opacity="0.85" />
+  <circle cx="80" cy="36" r="4" fill="#ffffff" opacity="0.85" />
+  <circle cx="92" cy="54" r="5" fill="#ffffff" opacity="0.9" />
+  <path d="M36 28h48a6 6 0 0 1 6 6v4a6 6 0 0 1-6 6H36a6 6 0 0 1-6-6v-4a6 6 0 0 1 6-6z" fill="rgba(255,255,255,0.18)" />
+  <path d="M40 34h20" stroke="#ffffff" stroke-linecap="round" stroke-width="4" opacity="0.55" />
+  <path d="M68 34h16" stroke="#ffffff" stroke-linecap="round" stroke-width="4" opacity="0.35" />
+</svg>
